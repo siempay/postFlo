@@ -145,18 +145,19 @@ nav{
 .btn-outline:hover{background:var(--bg-2)}
 
 /* ── STATS ROW (mobile-first: stacked, 3-up from tablet) ── */
-.stats-section{padding:48px 0;background:linear-gradient(180deg,var(--green-light) 0%,var(--white) 100%)}
+.stats-section{padding:48px 0;background:var(--green-light)}
 .stats-row{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:640px){.stats-row{grid-template-columns:repeat(3,1fr);gap:16px}}
 .stat-card{
-  background:var(--green-light);border:1px solid var(--green-mid);
+  background:var(--green-dark);
   border-radius:var(--radius);padding:24px;text-align:center;
+  box-shadow:0 12px 28px rgba(8,80,65,.18);
 }
 .stat-num{
   font-family:'Fraunces',serif;font-size:48px;font-weight:700;
-  color:var(--green-dark);line-height:1;margin-bottom:8px;
+  color:#fff;line-height:1;margin-bottom:8px;
 }
-.stat-label{font-size:14px;color:var(--text-2);line-height:1.55}
+.stat-label{font-size:14px;color:rgba(255,255,255,.72);line-height:1.55}
 
 /* ── SECTION HEADERS ── */
 .section-eyebrow{
@@ -173,15 +174,16 @@ nav{
 }
 
 /* ── PROBLEM GRID (mobile-first: stacked, 2-up from tablet) ── */
-.problem-section{padding:64px 0;background:linear-gradient(180deg,var(--white) 0%,var(--bg) 100%)}
+.problem-section{padding:64px 0;background:var(--white)}
 .problem-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:36px}
 @media(min-width:700px){.problem-grid{grid-template-columns:1fr 1fr;gap:16px}}
 .problem-card{
   position:relative;overflow:hidden;background:var(--white);
   border:1px solid var(--border);border-radius:var(--radius);
   padding:26px 24px;transition:transform .2s,box-shadow .2s;
+  box-shadow:0 8px 20px rgba(15,23,42,.05);
 }
-.problem-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,23,42,.06)}
+.problem-card:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(15,23,42,.09)}
 .pc-num{
   position:absolute;top:2px;right:18px;z-index:0;
   font-family:'Fraunces',serif;font-weight:600;font-size:64px;line-height:1;
@@ -204,7 +206,7 @@ nav{
 .insight-strip strong{font-weight:600}
 
 /* ── SOLUTION ── */
-.solution-section{padding:80px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--white) 100%)}
+.solution-section{padding:80px 0;background:var(--green-light)}
 .solution-hero{
   background:linear-gradient(135deg,var(--green-dark) 0%,#0D6B50 100%);
   border-radius:20px;padding:clamp(32px,5vw,56px);color:#fff;
@@ -229,7 +231,7 @@ nav{
 }
 
 /* ── LIVE DEMO (mobile-first: stacked; side-by-side from 900px) ── */
-.loop-section{padding:64px 0;background:linear-gradient(180deg,var(--white) 0%,var(--bg) 100%)}
+.loop-section{padding:64px 0;background:var(--white)}
 .demo-wrap{
   display:flex;flex-direction:column;gap:28px;align-items:center;
   margin-top:36px;
@@ -302,8 +304,8 @@ nav{
 .screenshot-grid{display:flex;flex-direction:column;align-items:center;gap:32px;margin-top:40px}
 @media(min-width:860px){.screenshot-grid{flex-direction:row;justify-content:center;gap:24px}}
 .screenshot-card{display:flex;flex-direction:column;align-items:center;gap:12px}
-.screenshot-card img{
-  border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.1);
+.screenshot-card img,.screenshot-card svg{
+  border-radius:24px;box-shadow:0 20px 50px rgba(8,80,65,.16);
   max-width:100%;height:auto;
 }
 .screenshot-label{
@@ -329,8 +331,8 @@ nav{
 }
 
 /* ── NOT / IS ── */
-.phone-section{padding:80px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--white) 100%)}
-.wnw-section{padding:80px 0;background:linear-gradient(180deg,var(--white) 0%,var(--bg) 100%)}
+.phone-section{padding:80px 0;background:var(--green-light)}
+.wnw-section{padding:80px 0;background:var(--white)}
 .wnw-grid{display:grid;grid-template-columns:1fr;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:40px}
 @media(min-width:700px){.wnw-grid{grid-template-columns:1fr 1fr}}
 .wnw-col{padding:28px}
@@ -851,14 +853,15 @@ footer strong{color:rgba(255,255,255,.65)}
 <!-- ═══════════════════════════════════════════
      FEATURES GLIMPSE — The 3am moment
 ═══════════════════════════════════════════ -->
-<section style="padding:80px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--white) 100%)">
+<section style="padding:88px 0;background:linear-gradient(160deg,var(--green-dark) 0%,#0D6B50 55%,#0A5A47 100%)">
 <div class="inner">
 
-  <p class="section-eyebrow">The moment that matters</p>
-  <h2 class="section-heading">3am. Baby is crying.<br><em>Now what?</em></h2>
+  <p class="section-eyebrow" style="color:var(--green-mid)">The moment that matters</p>
+  <h2 class="section-heading" style="color:#fff">3am. Baby is crying.<br><em style="color:var(--green-mid)">Now what?</em></h2>
 
   <!-- Feature image -->
-  <svg viewBox="0 0 800 350" style="width:100%;height:auto;display:block;border-radius:20px;margin-top:32px" role="img" aria-label="PostFlo 3am AI chat mockup">
+  <div style="margin-top:32px;border-radius:20px;box-shadow:0 24px 56px rgba(0,0,0,.28),0 0 0 1px rgba(255,255,255,.06)">
+  <svg viewBox="0 0 800 350" style="width:100%;height:auto;display:block;border-radius:20px" role="img" aria-label="PostFlo 3am AI chat mockup">
     <rect width="800" height="350" fill="var(--green-dark)"/>
     <circle cx="640" cy="80" r="140" fill="var(--white)" opacity=".04"/>
     <circle cx="120" cy="300" r="100" fill="var(--white)" opacity=".04"/>
@@ -881,8 +884,9 @@ footer strong{color:rgba(255,255,255,.65)}
     </g>
     <text x="420" y="300" font-family="Fraunces, serif" font-style="italic" font-size="22" fill="var(--green-mid)" opacity=".55">always awake with you</text>
   </svg>
+  </div>
 
-  <div class="mini-feature-grid">
+  <div class="mini-feature-grid" style="margin-top:40px">
     <div class="mini-feature-card">
       <div class="mini-feature-icon">🌙</div>
       <h4 class="mini-feature-title">The 3am AI</h4>
@@ -929,7 +933,7 @@ footer strong{color:rgba(255,255,255,.65)}
 <!-- ═══════════════════════════════════════════
      NOTIFICATION PROMISE
 ═══════════════════════════════════════════ -->
-<section style="padding:60px 0;background:linear-gradient(180deg,var(--white) 0%,var(--bg) 100%)">
+<section style="padding:60px 0;background:var(--green-light)">
 <div class="inner" style="text-align:center;max-width:640px">
 
   <div style="font-size:40px;margin-bottom:16px">🔕</div>
