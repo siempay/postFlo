@@ -141,13 +141,6 @@ nav{
 }
 .hero-shot{position:relative;width:100%;max-width:280px;margin-top:28px}
 .hero-shot img{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 60px rgba(8,80,65,.22))}
-.hero-badge{
-  position:absolute;left:-34px;bottom:48px;width:108px;height:108px;
-  border-radius:50%;overflow:hidden;border:4px solid var(--white);
-  box-shadow:0 14px 30px rgba(8,80,65,.28);
-}
-.hero-badge img{width:100%;height:100%;object-fit:cover;display:block;filter:none}
-@media(max-width:539px){.hero-badge{width:80px;height:80px;left:-14px;bottom:30px;border-width:3px}}
 .hero-eyebrow{
   font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
   color:var(--green);margin-bottom:16px;
@@ -393,6 +386,13 @@ nav{
   font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
   color:var(--green-mid);margin-bottom:16px;position:relative;
 }
+.founding-badge{
+  display:inline-flex;align-items:center;gap:7px;position:relative;
+  background:rgba(93,202,165,.14);border:1px solid rgba(93,202,165,.4);
+  border-radius:99px;padding:7px 16px;font-size:13px;font-weight:500;
+  color:var(--green-mid);margin-bottom:18px;
+}
+.founding-badge::before{content:'🔒';font-size:12px}
 .waitlist-heading{
   font-family:'Fraunces',serif;font-size:clamp(28px,4vw,44px);
   font-weight:600;line-height:1.1;margin-bottom:14px;position:relative;
@@ -430,6 +430,13 @@ nav{
   font-size:14px;color:var(--green-mid);margin-top:16px;min-height:20px;
   position:relative;font-weight:500;
 }
+.waitlist-share{margin-top:18px;position:relative}
+.share-btn{
+  background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;
+  padding:11px 22px;border-radius:10px;cursor:pointer;transition:background .15s;
+}
+.share-btn:hover{background:rgba(255,255,255,.18)}
 
 /* ── FOOTER ── */
 footer{
@@ -481,9 +488,6 @@ footer strong{color:rgba(255,255,255,.65)}
 
   <div class="hero-shot hero-anim">
     <img src="screens/home.png" width="300" height="624" alt="The PostFlo home screen — Lily, 6 weeks old, today's check: has she been extra fussy in the evenings?">
-    <div class="hero-badge">
-      <img src="photos/hero-accent.jpg" width="108" height="108" alt="A mother holding her baby close, wrapped in a knit sweater">
-    </div>
   </div>
 
 </div>
@@ -715,6 +719,7 @@ footer strong{color:rgba(255,255,255,.65)}
 
   <p class="section-eyebrow reveal">What we stand for</p>
   <h2 class="section-heading reveal">Not the app <em>you deleted last week</em></h2>
+  <p class="reveal" style="font-size:14px;color:var(--text-2);margin-top:-4px;margin-bottom:8px">Already logging feeds in another tracker? This isn't another one of those — it's the thing yours never tells you.</p>
 
   <div class="wnw-grid reveal">
     <div class="wnw-col not">
@@ -823,9 +828,10 @@ footer strong{color:rgba(255,255,255,.65)}
 <div class="inner">
 
   <p class="waitlist-eyebrow">Early access</p>
+  <div class="founding-badge">Founding members keep this price for life</div>
   <h2 class="waitlist-heading">Be the first to know<br>when PostFlo launches.</h2>
   <p class="waitlist-sub">
-    Free early access. $9.99/month when we launch. 7-day free trial. Cancel anytime.
+    Free early access. $6.99/week when we launch. 7-day free trial. Cancel anytime.
   </p>
 
   <form class="waitlist-form" id="waitlist-form">
@@ -833,6 +839,9 @@ footer strong{color:rgba(255,255,255,.65)}
     <button class="waitlist-btn" id="waitlist-btn" type="submit">Get early access</button>
   </form>
   <p class="waitlist-status" id="waitlist-status" role="status" aria-live="polite"></p>
+  <div class="waitlist-share" id="waitlist-share" hidden>
+    <button type="button" class="share-btn" id="share-btn">Know another new mom? Share PostFlo →</button>
+  </div>
 
   <p class="waitlist-trust">
     One notification a day. No spam. No data sold. Ever.
@@ -911,10 +920,14 @@ footer strong{color:rgba(255,255,255,.65)}
 <script>
 (function(){
   var FALLBACK_EMAIL = "siempay@gmail.com";
+  var SHARE_URL = "https://postfloapp.com";
+  var SHARE_TEXT = "PostFlo — the app that picks up where pregnancy apps leave off. Just joined the waitlist:";
   var form = document.getElementById('waitlist-form');
   var input = document.getElementById('waitlist-email');
   var btn = document.getElementById('waitlist-btn');
   var status = document.getElementById('waitlist-status');
+  var shareWrap = document.getElementById('waitlist-share');
+  var shareBtn = document.getElementById('share-btn');
 
   function trackSignup(method){
     // No email or other PII in the event payload — GA4's own terms
@@ -925,12 +938,39 @@ footer strong{color:rgba(255,255,255,.65)}
     }
   }
 
+  function showSuccess(){
+    status.textContent = "You're on the list. One email when we launch — nothing before that.";
+    shareWrap.hidden = false;
+  }
+
   function mailtoFallback(email){
     var subject = encodeURIComponent('PostFlo early access');
     var body = encodeURIComponent('Please add me to the waitlist: ' + email);
     window.location.href = 'mailto:' + FALLBACK_EMAIL + '?subject=' + subject + '&body=' + body;
     status.textContent = "Opening your email app so this reaches us directly.";
+    shareWrap.hidden = false;
     trackSignup('mailto_fallback');
+  }
+
+  if (shareBtn) {
+    shareBtn.addEventListener('click', async function(){
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: 'PostFlo', text: SHARE_TEXT, url: SHARE_URL });
+          if (typeof window.gtag === 'function') window.gtag('event', 'waitlist_share', { method: 'native_share' });
+        } catch (e) { /* user cancelled the share sheet — not an error */ }
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(SHARE_TEXT + ' ' + SHARE_URL);
+        var original = shareBtn.textContent;
+        shareBtn.textContent = 'Link copied ✓';
+        setTimeout(function(){ shareBtn.textContent = original; }, 2200);
+        if (typeof window.gtag === 'function') window.gtag('event', 'waitlist_share', { method: 'copy_link' });
+      } catch (e) {
+        window.prompt('Copy this link to share PostFlo:', SHARE_URL);
+      }
+    });
   }
 
   // 1. Real backend — works once this is deployed on Vercel with /api/subscribe live.
@@ -966,13 +1006,13 @@ footer strong{color:rgba(255,255,255,.65)}
 
     try {
       await trySubscribeApi(email);
-      status.textContent = "You're on the list. We'll email you when PostFlo launches.";
+      showSuccess();
       form.reset();
       trackSignup('vercel_api');
     } catch (apiErr) {
       try {
         await trySubscribeArtifactDb(email);
-        status.textContent = "You're on the list. We'll email you when PostFlo launches.";
+        showSuccess();
         form.reset();
         trackSignup('artifact_db');
       } catch (dbErr) {
