@@ -132,6 +132,15 @@ nav{
   background:radial-gradient(circle,rgba(29,158,117,.08) 0%,transparent 70%);
   pointer-events:none;
 }
+.hero-grid{display:flex;flex-direction:column;align-items:center;gap:8px}
+@media(min-width:900px){
+  .hero-grid{flex-direction:row;align-items:center;justify-content:space-between;gap:40px;text-align:left}
+  .hero-copy{flex:1;max-width:520px}
+  .hero-shot{flex-shrink:0;width:300px;max-width:300px}
+  .hero-headline,.hero-subhead{max-width:none}
+}
+.hero-shot{position:relative;width:100%;max-width:280px;margin-top:28px}
+.hero-shot img{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 60px rgba(8,80,65,.22))}
 .hero-eyebrow{
   font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
   color:var(--green);margin-bottom:16px;
@@ -427,59 +436,28 @@ footer strong{color:rgba(255,255,255,.65)}
      HERO — Fear + Recognition, cut to the bone
 ═══════════════════════════════════════════ -->
 <section class="hero-section">
-<div class="inner">
+<div class="inner hero-grid">
 
-  <p class="hero-eyebrow hero-anim">For every mother doing this alone at 3am</p>
-  <h1 class="hero-headline hero-anim">
-    The day your baby arrived,<br>
-    every app you trusted<br>
-    <em>went silent.</em>
-  </h1>
-  <p class="hero-subhead hero-anim">
-    9 months of guidance. Then — nothing. PostFlo picks up where it stopped.
-  </p>
-  <div class="hero-buttons hero-anim">
-    <a href="#waitlist" class="btn-green">Get early access — it's free</a>
-    <a href="#demo" class="btn-outline">See it work ↓</a>
+  <div class="hero-copy">
+    <p class="hero-eyebrow hero-anim">For every mother doing this alone at 3am</p>
+    <h1 class="hero-headline hero-anim">
+      The day your baby arrived,<br>
+      every app you trusted<br>
+      <em>went silent.</em>
+    </h1>
+    <p class="hero-subhead hero-anim">
+      9 months of guidance. Then — nothing. PostFlo picks up where it stopped.
+    </p>
+    <div class="hero-buttons hero-anim">
+      <a href="#waitlist" class="btn-green">Get early access — it's free</a>
+      <a href="#demo" class="btn-outline">See it work ↓</a>
+    </div>
   </div>
 
-</div>
+  <div class="hero-shot hero-anim">
+    <img src="screens/home.png" width="300" height="624" alt="The PostFlo home screen — Lily, 6 weeks old, today's check: has she been extra fussy in the evenings?">
+  </div>
 
-<div class="hero-anim" style="max-width:460px;margin:0 auto;padding:36px 24px 0">
-  <svg viewBox="0 0 400 520" style="width:100%;height:auto;display:block" role="img" aria-label="PostFlo app mockup on iPhone">
-    <circle cx="55" cy="100" r="135" fill="var(--green-mid)" opacity=".16"/>
-    <circle cx="355" cy="440" r="110" fill="var(--green)" opacity=".1"/>
-    <ellipse cx="200" cy="505" rx="130" ry="12" fill="var(--green-dark)" opacity=".08"/>
-    <g transform="translate(80,20)">
-      <rect x="0" y="0" width="240" height="480" rx="40" fill="var(--green-dark)"/>
-      <rect x="10" y="10" width="220" height="460" rx="30" fill="var(--white)"/>
-      <rect x="95" y="24" width="50" height="7" rx="3.5" fill="var(--green-dark)" opacity=".25"/>
-      <circle cx="120" cy="150" r="62" fill="var(--green-light)" stroke="var(--green)" stroke-width="5"/>
-      <text x="120" y="162" text-anchor="middle" font-family="Fraunces, serif" font-size="46" font-weight="700" fill="var(--green-dark)">6</text>
-      <text x="120" y="184" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="var(--text-2)">weeks old</text>
-      <g>
-        <circle cx="42" cy="232" r="6" fill="var(--green)"/>
-        <circle cx="64" cy="232" r="6" fill="var(--green)"/>
-        <circle cx="86" cy="232" r="6" fill="var(--green)"/>
-        <circle cx="108" cy="232" r="7" fill="none" stroke="var(--green)" stroke-width="2.5"/>
-        <circle cx="132" cy="232" r="6" fill="var(--border)"/>
-        <circle cx="154" cy="232" r="6" fill="var(--border)"/>
-        <circle cx="176" cy="232" r="6" fill="var(--border)"/>
-        <circle cx="198" cy="232" r="6" fill="var(--border)"/>
-      </g>
-      <rect x="20" y="260" width="200" height="72" rx="14" fill="var(--bg)"/>
-      <rect x="34" y="276" width="110" height="8" rx="4" fill="var(--green-dark)" opacity=".35"/>
-      <rect x="34" y="292" width="150" height="7" rx="3.5" fill="var(--text-3)" opacity=".5"/>
-      <rect x="34" y="306" width="90" height="7" rx="3.5" fill="var(--text-3)" opacity=".5"/>
-      <rect x="20" y="344" width="200" height="100" rx="14" fill="var(--green)"/>
-      <rect x="34" y="360" width="150" height="9" rx="4.5" fill="var(--white)" opacity=".92"/>
-      <rect x="34" y="376" width="120" height="7" rx="3.5" fill="var(--white)" opacity=".6"/>
-      <rect x="34" y="404" width="78" height="26" rx="13" fill="var(--white)"/>
-      <text x="73" y="421" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="var(--green-dark)">Yes</text>
-      <rect x="120" y="404" width="78" height="26" rx="13" fill="none" stroke="var(--white)" stroke-width="1.5" opacity=".8"/>
-      <text x="159" y="421" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="var(--white)">No</text>
-    </g>
-  </svg>
 </div>
 </section>
 
