@@ -363,6 +363,32 @@ nav{
 .wnw-col.not .wnw-icon{color:var(--red)}
 .wnw-col.is .wnw-icon{color:var(--green)}
 
+/* ── ARTICLES — library preview, mobile-first 1-up / 2-up from tablet ── */
+.articles-section{padding:64px 0;background:var(--green-light)}
+.article-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:32px}
+@media(min-width:680px){.article-grid{grid-template-columns:1fr 1fr;gap:24px}}
+.article-card{
+  background:var(--white);border-radius:18px;overflow:hidden;
+  box-shadow:0 10px 26px rgba(8,80,65,.08);transition:transform .2s,box-shadow .2s;
+}
+.article-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(8,80,65,.14)}
+.article-card img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+.article-body{padding:20px 22px 24px}
+.article-tag{
+  display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;padding:4px 10px;border-radius:99px;margin-bottom:12px;
+}
+.article-tag.fear{background:var(--red-light);color:#9F1D1D}
+.article-tag.worry{background:var(--amber-light);color:#92400E}
+.article-tag.joy{background:var(--green-light);color:var(--green-dark)}
+.article-tag.hope{background:#EFF6FF;color:#1D4ED8}
+.article-title{
+  font-family:'Fraunces',serif;font-size:19px;font-weight:600;color:var(--text);
+  line-height:1.3;margin-bottom:8px;
+}
+.article-excerpt{font-size:13.5px;color:var(--text-2);line-height:1.6}
+.article-meta{font-size:11.5px;color:var(--text-3);margin-top:14px;font-weight:500}
+
 /* ── MINI FEATURE GRID (3am section) ── */
 .mini-feature-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:32px}
 @media(min-width:700px){.mini-feature-grid{grid-template-columns:1fr 1fr;gap:16px}}
@@ -738,6 +764,82 @@ footer strong{color:rgba(255,255,255,.65)}
       <div class="wnw-item"><span class="wnw-icon">✓</span><span>An app that tracks mom <em>and</em> baby</span></div>
       <div class="wnw-item"><span class="wnw-icon">✓</span><span>The Flo journey, continued</span></div>
     </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ARTICLES — the knowledge library, previewed
+═══════════════════════════════════════════ -->
+<section class="articles-section">
+<div class="inner">
+
+  <p class="section-eyebrow reveal">From the PostFlo library</p>
+  <h2 class="section-heading reveal">The things no one tells you. <em>Until now.</em></h2>
+
+  <div class="article-grid reveal-group">
+
+    <div class="article-card reveal">
+      <img src="photos/articles/week6-hardest.jpg" width="700" height="467" alt="A newborn crying, mid-colic" loading="lazy">
+      <div class="article-body">
+        <span class="article-tag fear">Fear</span>
+        <h3 class="article-title">Week 6: The Hardest Week</h3>
+        <p class="article-excerpt">Colic peaks. Sleep deprivation peaks. If you're barely holding on — that's exactly where most mothers are right now. You are not broken.</p>
+        <p class="article-meta">Week 6 · 3 min read</p>
+      </div>
+    </div>
+
+    <div class="article-card reveal">
+      <img src="photos/articles/sleep-regression.jpg" width="700" height="467" alt="A baby sleeping peacefully in a crib" loading="lazy">
+      <div class="article-body">
+        <span class="article-tag worry">Worry</span>
+        <h3 class="article-title">The 4-Month Sleep Regression: What It Actually Is</h3>
+        <p class="article-excerpt">It's not a regression. It's a progression. Her brain is maturing — and for a few weeks, it feels like everything broke.</p>
+        <p class="article-meta">Month 4 · 4 min read</p>
+      </div>
+    </div>
+
+    <div class="article-card reveal">
+      <img src="photos/articles/ear-infection.jpg" width="700" height="467" alt="Close-up of a sleeping baby's face" loading="lazy">
+      <div class="article-body">
+        <span class="article-tag worry">Worry</span>
+        <h3 class="article-title">The Ear Infection Signs Most Parents Miss</h3>
+        <p class="article-excerpt">Broken sleep. Pulling at the ear. A slight fever. Not obvious crying — which is exactly why most parents miss it until it's worse.</p>
+        <p class="article-meta">Any week · 2 min read</p>
+      </div>
+    </div>
+
+    <div class="article-card reveal">
+      <img src="photos/articles/first-smile.jpg" width="700" height="467" alt="A mother laughing joyfully with her baby" loading="lazy">
+      <div class="article-body">
+        <span class="article-tag joy">Joy</span>
+        <h3 class="article-title">The First Social Smile: What It Actually Means</h3>
+        <p class="article-excerpt">Not a reflex — she's smiling back at you on purpose. She knows you. One of the most emotional moments in early parenting.</p>
+        <p class="article-meta">Week 5–6 · 2 min read</p>
+      </div>
+    </div>
+
+    <div class="article-card reveal">
+      <img src="photos/articles/ppd-1in7.jpg" width="700" height="467" alt="A woman sitting quietly, lost in thought" loading="lazy">
+      <div class="article-body">
+        <span class="article-tag fear">Fear</span>
+        <h3 class="article-title">1 in 7 Moms Go Through This — Here's How to Know</h3>
+        <p class="article-excerpt">You've mentioned feeling low a few times this week. That's really common. Two honest questions can tell you what's actually going on.</p>
+        <p class="article-meta">Postpartum · 3 min read</p>
+      </div>
+    </div>
+
+    <div class="article-card reveal">
+      <img src="photos/articles/due-date.jpg" width="700" height="467" alt="A pregnant woman holding her belly" loading="lazy">
+      <div class="article-body">
+        <span class="article-tag hope">Hope</span>
+        <h3 class="article-title">Past Your Due Date? You're Not Late.</h3>
+        <p class="article-excerpt">60% of first-time mothers deliver after their due date. It's the midpoint of a 5-week normal range — not a deadline you missed.</p>
+        <p class="article-meta">Week 40+ · 2 min read</p>
+      </div>
+    </div>
+
   </div>
 
 </div>
