@@ -141,6 +141,13 @@ nav{
 }
 .hero-shot{position:relative;width:100%;max-width:280px;margin-top:28px}
 .hero-shot img{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 60px rgba(8,80,65,.22))}
+.hero-badge{
+  position:absolute;left:-34px;bottom:48px;width:108px;height:108px;
+  border-radius:50%;overflow:hidden;border:4px solid var(--white);
+  box-shadow:0 14px 30px rgba(8,80,65,.28);
+}
+.hero-badge img{width:100%;height:100%;object-fit:cover;display:block;filter:none}
+@media(max-width:539px){.hero-badge{width:80px;height:80px;left:-14px;bottom:30px;border-width:3px}}
 .hero-eyebrow{
   font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
   color:var(--green);margin-bottom:16px;
@@ -200,6 +207,24 @@ nav{
   font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--green-dark);
   margin-top:24px;
 }
+
+/* ── "YOU'RE NOT ALONE" — photo + reassurance ── */
+.alone-section{padding:56px 0;background:var(--green-light)}
+.alone-grid{display:flex;flex-direction:column-reverse;align-items:center;gap:28px}
+@media(min-width:800px){
+  .alone-grid{flex-direction:row;align-items:center;gap:48px}
+  .alone-copy{flex:1}
+  .alone-photo{flex-shrink:0;width:320px}
+}
+.alone-photo{width:100%;max-width:340px}
+.alone-photo img{
+  width:100%;height:auto;display:block;border-radius:20px;
+  box-shadow:0 20px 44px rgba(8,80,65,.18);
+}
+.alone-copy{text-align:center}
+@media(min-width:800px){.alone-copy{text-align:left}}
+.alone-body{font-size:15px;color:var(--text-2);line-height:1.6;max-width:440px;margin:0 auto}
+@media(min-width:800px){.alone-body{margin:0}}
 
 /* ── STATS (mobile-first: stacked, 3-up from tablet) ── */
 .stats-section{padding:56px 0;background:var(--green-light)}
@@ -291,7 +316,7 @@ nav{
 .insight-strip strong{font-weight:700}
 
 /* ── SOLUTION — one line, one card ── */
-.solution-section{padding:56px 0;background:var(--green-light)}
+.solution-section{padding:56px 0;background:var(--white)}
 .solution-hero{
   background:linear-gradient(135deg,var(--green-dark) 0%,#0D6B50 100%);
   border-radius:20px;padding:clamp(28px,5vw,44px);color:#fff;
@@ -312,7 +337,7 @@ nav{
 }
 
 /* ── APP SCREENSHOTS ── */
-.phone-section{padding:64px 0;background:var(--white)}
+.phone-section{padding:64px 0;background:var(--green-light)}
 .screenshot-grid{display:flex;flex-direction:column;align-items:center;gap:32px;margin-top:32px}
 @media(min-width:860px){.screenshot-grid{flex-direction:row;justify-content:center;gap:24px}}
 .screenshot-card{display:flex;flex-direction:column;align-items:center;gap:10px}
@@ -330,7 +355,7 @@ nav{
 .phone-feature p{font-size:12.5px;color:var(--text-2);line-height:1.4}
 
 /* ── NOT / IS ── */
-.wnw-section{padding:64px 0;background:var(--green-light)}
+.wnw-section{padding:64px 0;background:var(--white)}
 .wnw-grid{display:grid;grid-template-columns:1fr;border-radius:var(--radius);overflow:hidden;margin-top:28px;box-shadow:0 12px 32px rgba(8,80,65,.1)}
 @media(min-width:700px){.wnw-grid{grid-template-columns:1fr 1fr}}
 .wnw-col{padding:24px}
@@ -456,6 +481,9 @@ footer strong{color:rgba(255,255,255,.65)}
 
   <div class="hero-shot hero-anim">
     <img src="screens/home.png" width="300" height="624" alt="The PostFlo home screen — Lily, 6 weeks old, today's check: has she been extra fussy in the evenings?">
+    <div class="hero-badge">
+      <img src="photos/hero-accent.jpg" width="108" height="108" alt="A mother holding her baby close, wrapped in a knit sweater">
+    </div>
   </div>
 
 </div>
@@ -493,7 +521,25 @@ footer strong{color:rgba(255,255,255,.65)}
     </div>
   </div>
 
-  <p class="problem-punch reveal">You're not failing. You were never shown the gap.</p>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     YOU'RE NOT ALONE — photo + reassurance
+═══════════════════════════════════════════ -->
+<section class="alone-section">
+<div class="inner alone-grid">
+
+  <div class="alone-photo reveal">
+    <img src="photos/not-alone.jpg" width="900" height="600" alt="A mother gently holding her sleeping newborn, eyes closed, by a window" loading="lazy">
+  </div>
+
+  <div class="alone-copy reveal">
+    <p class="section-eyebrow">A quick reminder</p>
+    <h2 class="section-heading">You're not failing. <em>You were never shown the gap.</em></h2>
+    <p class="alone-body">48 hours in the hospital. Then six weeks of silence. That's not a flaw in you — it's a flaw in what came before PostFlo.</p>
+  </div>
 
 </div>
 </section>
@@ -695,7 +741,7 @@ footer strong{color:rgba(255,255,255,.65)}
 <!-- ═══════════════════════════════════════════
      3AM — dark moment
 ═══════════════════════════════════════════ -->
-<section style="padding:80px 0;background:linear-gradient(160deg,var(--green-dark) 0%,#0D6B50 55%,#0A5A47 100%)">
+<section style="padding:80px 0;background:linear-gradient(160deg,rgba(8,80,65,.93) 0%,rgba(13,107,80,.91) 55%,rgba(10,90,71,.94) 100%),url('photos/night-3am.jpg') center 30%/cover no-repeat">
 <div class="inner">
 
   <p class="section-eyebrow reveal" style="color:var(--green-mid)">The moment that matters</p>
