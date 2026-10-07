@@ -256,20 +256,29 @@ nav{
 .alone-body{font-size:15px;color:var(--text-2);line-height:1.6;max-width:440px;margin:0 auto}
 @media(min-width:800px){.alone-body{margin:0}}
 
-/* ── STATS (mobile-first: stacked, 3-up from tablet) ── */
+/* ── STATS — one unified panel, not three repeated boxes ── */
 .stats-section{padding:56px 0;background:var(--green-light)}
-.stats-row{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:640px){.stats-row{grid-template-columns:repeat(3,1fr);gap:16px}}
+.stats-row{
+  display:grid;grid-template-columns:1fr;
+  background:var(--green-dark);border-radius:20px;
+  box-shadow:0 16px 36px rgba(8,80,65,.2);overflow:hidden;
+}
+@media(min-width:640px){.stats-row{grid-template-columns:repeat(3,1fr)}}
 .stat-card{
-  background:var(--green-dark);
-  border-radius:var(--radius);padding:24px;text-align:center;
-  box-shadow:0 12px 28px rgba(8,80,65,.18);
+  padding:30px 26px;text-align:left;position:relative;
+  border-top:1px solid rgba(255,255,255,.12);
 }
+.stats-row > .stat-card:first-child{border-top:none}
+@media(min-width:640px){
+  .stat-card{border-top:none;border-left:1px solid rgba(255,255,255,.12)}
+  .stats-row > .stat-card:first-child{border-left:none}
+}
+.stat-icon{font-size:22px;margin-bottom:12px;display:block}
 .stat-num{
-  font-family:'Fraunces',serif;font-size:44px;font-weight:700;
-  color:#fff;line-height:1;margin-bottom:6px;
+  font-family:'Fraunces',serif;font-size:42px;font-weight:700;
+  color:#fff;line-height:1;margin-bottom:10px;
 }
-.stat-label{font-size:13px;color:rgba(255,255,255,.72);line-height:1.5}
+.stat-label{font-size:14.5px;color:rgba(255,255,255,.78);line-height:1.55}
 
 /* ── LIVE DEMO (mobile-first: stacked; side-by-side from 900px) ── */
 .loop-section{padding:60px 0;background:var(--white)}
@@ -722,14 +731,17 @@ footer strong{color:rgba(255,255,255,.65)}
 
   <div class="stats-row reveal-group" style="margin-top:28px">
     <div class="stat-card reveal">
+      <span class="stat-icon">💔</span>
       <p class="stat-num">1 in 5</p>
       <p class="stat-label">new mothers experience postpartum depression — most cases go unnoticed.</p>
     </div>
     <div class="stat-card reveal">
+      <span class="stat-icon">✂️</span>
       <p class="stat-num">420M</p>
       <p class="stat-label">women use Flo to get through pregnancy. Every one loses that support the moment the baby arrives.</p>
     </div>
     <div class="stat-card reveal">
+      <span class="stat-icon">📍</span>
       <p class="stat-num">84%</p>
       <p class="stat-label">of women live somewhere real maternal mental health support is hard to find.</p>
     </div>
