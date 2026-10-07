@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PostFlo — The app that picks up where pregnancy apps leave off</title>
-<meta name="description" content="A week-by-week companion that knows where your baby is in the journey, tells you what's coming before it happens, and is there at 3am when everything feels like an emergency.">
+<title>PostFlo — What to Use After Flo, From Birth to Year One</title>
+<meta name="description" content="Flo got you through 9 months of pregnancy. PostFlo picks up the exact day it stops — a week-by-week companion that knows where your baby is in the journey, tells you what's coming before it happens, and is there at 3am when everything feels like an emergency.">
 
 <!-- TODO: swap postflo.app for the real domain once it's registered —
      canonical/OG/sitemap/robots.txt all assume this placeholder. -->
@@ -16,14 +16,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://postflo.app/">
 <meta property="og:site_name" content="PostFlo">
-<meta property="og:title" content="PostFlo — The app that picks up where pregnancy apps leave off">
-<meta property="og:description" content="A week-by-week companion that knows where your baby is in the journey, tells you what's coming before it happens, and is there at 3am when everything feels like an emergency.">
+<meta property="og:title" content="PostFlo — What to Use After Flo, From Birth to Year One">
+<meta property="og:description" content="Flo got you through 9 months of pregnancy. PostFlo picks up the exact day it stops — a week-by-week companion that knows where your baby is in the journey, tells you what's coming before it happens, and is there at 3am when everything feels like an emergency.">
 <meta property="og:image" content="https://postflo.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="PostFlo — The app that picks up where pregnancy apps leave off">
-<meta name="twitter:description" content="A week-by-week companion that knows where your baby is in the journey, tells you what's coming before it happens, and is there at 3am when everything feels like an emergency.">
+<meta name="twitter:title" content="PostFlo — What to Use After Flo, From Birth to Year One">
+<meta name="twitter:description" content="Flo got you through 9 months of pregnancy. PostFlo picks up the exact day it stops — a week-by-week companion that knows where your baby is in the journey, tells you what's coming before it happens, and is there at 3am when everything feels like an emergency.">
 <meta name="twitter:image" content="https://postflo.app/og-image.png">
 
 <!-- TODO: add a real favicon.ico / icon files to site/ root before launch. -->
@@ -39,7 +39,7 @@
   "@type": "WebSite",
   "name": "PostFlo",
   "url": "https://postflo.app/",
-  "description": "A week-by-week companion that knows where your baby is in the journey, tells you what's coming before it happens, and is there at 3am when everything feels like an emergency."
+  "description": "Flo got you through 9 months of pregnancy. PostFlo picks up the exact day it stops — a week-by-week companion that knows where your baby is in the journey, tells you what's coming before it happens, and is there at 3am when everything feels like an emergency."
 }
 </script>
 <script type="application/ld+json">
@@ -49,13 +49,50 @@
   "name": "PostFlo",
   "applicationCategory": "HealthApplication",
   "operatingSystem": "iOS",
-  "description": "A week-by-week postpartum companion for first-time mothers — prepares you for what's coming, answers at 3am, and never asks you to log every feed and diaper.",
+  "description": "The postpartum companion for women who used Flo (or any pregnancy app) through pregnancy and found nothing waiting for them after birth. A week-by-week guide for first-time mothers — prepares you for what's coming, answers at 3am, and never asks you to log every feed and diaper.",
   "offers": {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD",
     "availability": "https://schema.org/PreOrder"
   }
+}
+</script>
+<!-- FAQPage — targets real search intent from women looking for what comes
+     after Flo (or any pregnancy-tracking app) once the baby arrives. Every
+     answer here is a truthful, comparative statement about PostFlo's own
+     positioning — none of it claims partnership, endorsement, or technical
+     integration with Flo, which would be false and is not what this is. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What app should I use after Flo once my baby is born?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flo and most other pregnancy-tracking apps end their guidance at birth. PostFlo is built specifically to continue that daily habit into the postpartum period — the same week-by-week, one-question-a-day loop, now applied to your baby's first year instead of your pregnancy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Flo have a postpartum or baby tracking mode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flo is a cycle and pregnancy tracking app; its guidance is built around pregnancy, not the baby's first year after birth. PostFlo is an independent app designed to pick up where that kind of app leaves off, from birth to 12 months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is PostFlo affiliated with or made by Flo Health?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. PostFlo is an independent product, not affiliated with, endorsed by, or built in partnership with Flo Health Inc. The name reflects what the app is for — continuing your care after pregnancy apps like Flo stop — not any official relationship."
+      }
+    }
+  ]
 }
 </script>
 
@@ -388,6 +425,20 @@ nav{
 }
 .article-excerpt{font-size:13.5px;color:var(--text-2);line-height:1.6}
 .article-meta{font-size:11.5px;color:var(--text-3);margin-top:14px;font-weight:500}
+
+/* ── FAQ ── */
+.faq-section{padding:56px 0;background:var(--white)}
+.faq-list{max-width:680px;margin:32px auto 0;display:flex;flex-direction:column;gap:12px}
+.faq-item{border:1px solid var(--border);border-radius:14px;background:var(--bg);overflow:hidden}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px 20px;cursor:pointer;font-weight:600;font-size:15px;color:var(--text);
+  list-style:none;
+}
+.faq-q::-webkit-details-marker{display:none}
+.faq-q::after{content:'+';font-size:20px;color:var(--green);flex-shrink:0;transition:transform .2s}
+details[open] .faq-q::after{transform:rotate(45deg)}
+.faq-a{padding:0 20px 18px;font-size:14px;color:var(--text-2);line-height:1.6}
 
 /* ── MINI FEATURE GRID (3am section) ── */
 .mini-feature-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:32px}
@@ -919,6 +970,33 @@ footer strong{color:rgba(255,255,255,.65)}
   <p style="font-size:14px;color:var(--text-2);line-height:1.6">
     8am: "Here's what week 6 means for Lily." No log reminders. No upgrade nags. This restraint is the brand.
   </p>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════ -->
+<section class="faq-section">
+<div class="inner">
+
+  <p class="section-eyebrow reveal" style="text-align:center">Questions</p>
+  <h2 class="section-heading reveal" style="text-align:center">What people ask <em>before joining</em></h2>
+
+  <div class="faq-list reveal">
+    <details class="faq-item">
+      <summary class="faq-q">What app should I use after Flo once my baby is born?</summary>
+      <p class="faq-a">Flo and most other pregnancy-tracking apps end their guidance at birth. PostFlo is built specifically to continue that daily habit into the postpartum period — the same week-by-week, one-question-a-day loop, now applied to your baby's first year instead of your pregnancy.</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">Does Flo have a postpartum or baby tracking mode?</summary>
+      <p class="faq-a">Flo is a cycle and pregnancy tracking app; its guidance is built around pregnancy, not the baby's first year after birth. PostFlo is an independent app designed to pick up where that kind of app leaves off, from birth to 12 months.</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">Is PostFlo affiliated with or made by Flo Health?</summary>
+      <p class="faq-a">No. PostFlo is an independent product, not affiliated with, endorsed by, or built in partnership with Flo Health Inc. The name reflects what the app is for — continuing your care after pregnancy apps like Flo stop — not any official relationship.</p>
+    </details>
+  </div>
 
 </div>
 </section>
